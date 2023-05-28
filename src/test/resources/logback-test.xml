@@ -1,13 +1,18 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <!-- pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern -->
+            <pattern>[%thread] %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
     <logger name="io.github.bonigarcia.wdm" level="ERROR"/>
     <logger name="org.openqa.selenium" level="ERROR"/>
     <logger name="org.seleniumhq.selenium" level="ERROR"/>
     <logger name="org.testng.internal" level="ERROR"/>
+    <logger name="com.ielia.poc" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
     <root level="info">
         <appender-ref ref="STDOUT"/>
     </root>
